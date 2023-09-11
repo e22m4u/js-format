@@ -17,6 +17,11 @@ import {valueToString} from './value-to-string.js';
  * @return {string}
  */
 export function format(fmt) {
+  if (fmt instanceof Date) {
+    fmt = fmt.toISOString();
+  } else if (typeof fmt !== 'string') {
+    fmt = String(fmt);
+  }
   const re = /(%?)(%([sdjvl]))/g;
   const args = Array.prototype.slice.call(arguments, 1);
   if (args.length) {

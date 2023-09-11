@@ -2,6 +2,133 @@ import {expect} from 'chai';
 import {format} from './format.js';
 
 describe('format', function () {
+  describe('pattern', function () {
+    it('uses the given pattern of a string as is', function () {
+      const res = format('foo');
+      expect(res).to.be.eq('foo');
+    });
+
+    it('uses the given pattern of an empty string as is', function () {
+      const res = format('');
+      expect(res).to.be.eq('');
+    });
+
+    it('converts the given pattern of a number to a string', function () {
+      const res = format(10);
+      expect(res).to.be.eq('10');
+    });
+
+    it('converts the given pattern of zero to a string', function () {
+      const res = format(0);
+      expect(res).to.be.eq('0');
+    });
+
+    it('converts the given pattern of NaN to a string', function () {
+      const res = format(NaN);
+      expect(res).to.be.eq('NaN');
+    });
+
+    it('converts the given pattern of Infinity to a string', function () {
+      const res = format(Infinity);
+      expect(res).to.be.eq('Infinity');
+    });
+
+    it('converts the given pattern of true to a string', function () {
+      const res = format(true);
+      expect(res).to.be.eq('true');
+    });
+
+    it('converts the given pattern of false to a string', function () {
+      const res = format(false);
+      expect(res).to.be.eq('false');
+    });
+
+    it('converts the given pattern of an array to a string', function () {
+      const res = format([1, 2, 3]);
+      expect(res).to.be.eq('1,2,3');
+    });
+
+    it('converts the given pattern of an empty array to a string', function () {
+      const res = format([]);
+      expect(res).to.be.eq('');
+    });
+
+    it('converts the given pattern of a key-value object to a string', function () {
+      const res = format({foo: 'bar'});
+      expect(res).to.be.eq('[object Object]');
+    });
+
+    it('converts the given pattern of an object without keys to a string', function () {
+      const res = format({});
+      expect(res).to.be.eq('[object Object]');
+    });
+
+    it('converts the given pattern of a date instance to a string', function () {
+      const date = new Date();
+      const res = format(date);
+      expect(res).to.be.eq(date.toISOString());
+    });
+
+    it('converts the given pattern of a map instance to a string', function () {
+      const res = format(new Map());
+      expect(res).to.be.eq('[object Map]');
+    });
+
+    it('converts the given pattern of a class instance to a string', function () {
+      class MyClass {}
+      const res = format(MyClass);
+      expect(res).to.be.eq('class MyClass {}');
+    });
+
+    it('converts the given pattern of a function to a string', function () {
+      const res = format(function () {});
+      expect(res).to.be.eq('function () {}');
+    });
+
+    it('converts the given pattern of a shorthand function to a string', function () {
+      const res = format(() => undefined);
+      expect(res).to.be.eq('() => undefined');
+    });
+
+    it('converts the given pattern of a named function to a string', function () {
+      function foo() {}
+      const res = format(foo);
+      expect(res).to.be.eq('function foo() {}');
+    });
+
+    it('converts the given pattern of a class to a string', function () {
+      class MyClass {}
+      const res = format(MyClass);
+      expect(res).to.be.eq('class MyClass {}');
+    });
+
+    it('converts the given pattern of a class constructor to a string', function () {
+      class MyClass {}
+      const res = format(MyClass.constructor);
+      expect(res).to.be.eq('function Function() { [native code] }');
+    });
+
+    it('converts the given pattern of a symbol to a string', function () {
+      const res = format('%s', Symbol());
+      expect(res).to.be.eq('Symbol()');
+    });
+
+    it('converts the given pattern of a named symbol to a string', function () {
+      const res = format('%s', Symbol('foo'));
+      expect(res).to.be.eq('Symbol(foo)');
+    });
+
+    it('converts undefined pattern to a string', function () {
+      const res = format(undefined);
+      expect(res).to.be.eq('undefined');
+    });
+
+    it('converts null pattern to a string', function () {
+      const res = format(null);
+      expect(res).to.be.eq('null');
+    });
+  });
+
   describe('%s', function () {
     it('returns a string representation of the non-pattern string', function () {
       const res = format('foo');
