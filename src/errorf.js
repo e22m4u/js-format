@@ -7,10 +7,11 @@ export class Errorf extends Error {
   /**
    * Constructor.
    *
-   * @param {string} pattern
+   * @param {string|undefined} pattern
    * @param {any} args
    */
-  constructor(pattern, ...args) {
-    super(format(pattern, ...args));
+  constructor(pattern = undefined, ...args) {
+    const message = pattern != null ? format(pattern, ...args) : undefined;
+    super(message);
   }
 }

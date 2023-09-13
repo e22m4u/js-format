@@ -13,19 +13,19 @@ import {valueToString} from './value-to-string.js';
  * v - value (valueToString.js)
  * l - list (arrayToList.js)
  *
- * @param {any} fmt
+ * @param {string} pattern
  * @return {string}
  */
-export function format(fmt) {
-  if (fmt instanceof Date) {
-    fmt = fmt.toISOString();
-  } else if (typeof fmt !== 'string') {
-    fmt = String(fmt);
+export function format(pattern) {
+  if (pattern instanceof Date) {
+    pattern = pattern.toISOString();
+  } else if (typeof pattern !== 'string') {
+    pattern = String(pattern);
   }
   const re = /(%?)(%([sdjvl]))/g;
   const args = Array.prototype.slice.call(arguments, 1);
   if (args.length) {
-    fmt = fmt.replace(re, function (match, escaped, ptn, flag) {
+    pattern = pattern.replace(re, function (match, escaped, ptn, flag) {
       let arg = args.shift();
       switch (flag) {
         // eslint-disable-next-line no-fallthrough
@@ -51,8 +51,8 @@ export function format(fmt) {
     });
   }
   // arguments remain after formatting
-  if (args.length) fmt += ' ' + args.join(' ');
+  if (args.length) pattern += ' ' + args.join(' ');
   // update escaped %% values
-  fmt = fmt.replace(/%{2,2}/g, '%');
-  return '' + fmt;
+  pattern = pattern.replace(/%{2,2}/g, '%');
+  return '' + pattern;
 }
