@@ -13,4 +13,4 @@
  * @param pattern
  * @param args
  */
-declare function format(pattern: string, ...args: any[]): string;
+export declare function format(pattern: string, ...args: any[]): string;

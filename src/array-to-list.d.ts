@@ -3,4 +3,4 @@
  *
  * @param input
  */
-declare function arrayToList(input: any): string;
+export declare function arrayToList(input: any): string;

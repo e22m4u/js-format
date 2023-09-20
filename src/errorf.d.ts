@@ -1,7 +1,7 @@
 /**
  * Errorf.
  */
-declare class Errorf extends Error {
+export declare class Errorf extends Error {
   /**
    * Constructor.
    *

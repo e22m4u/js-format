@@ -3,4 +3,4 @@
  *
  * @param input
  */
-declare function valueToString(input: any): string;
+export declare function valueToString(input: any): string;
