@@ -1,4 +1,4 @@
-## @e22m4u/util-format
+## @e22m4u/js-format
 
 Расширенная версия `format` из Node.js модуля `util`
 
@@ -12,7 +12,7 @@
 ## Установка
 
 ```bash
-npm install @e22m4u/util-format
+npm install @e22m4u/js-format
 ```
 
 ## Примеры
@@ -20,7 +20,7 @@ npm install @e22m4u/util-format
 Es-импорт
 
 ```js
-import {format} from '@e22m4u/util-format';
+import {format} from '@e22m4u/js-format';
 ```
 
 ### Спецификатор `%v`
@@ -94,7 +94,7 @@ format('> %l', [null]);         // > null
 Пример:
 
 ```js
-import {Errorf} from '@e22m4u/util-format';
+import {Errorf} from '@e22m4u/js-format';
 
 throw new Errorf(
   'It requires one of %l, but %v given.',
