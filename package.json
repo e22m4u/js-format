@@ -1,6 +1,6 @@
 {
   "name": "@e22m4u/js-format",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Расширенная версия format из Node.js модуля util",
   "type": "module",
   "main": "src/index.js",
