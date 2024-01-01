@@ -88,7 +88,7 @@ describe('valueToString', function () {
     expect(res).to.be.eq('Function');
   });
 
-  it('returns a string representation of the given shorthand function', function () {
+  it('returns a string representation of the given anonymous function', function () {
     const res = valueToString(() => undefined);
     expect(res).to.be.eq('Function');
   });
@@ -99,10 +99,15 @@ describe('valueToString', function () {
     expect(res).to.be.eq('Function');
   });
 
-  it('returns a string representation of the given class', function () {
+  it('returns a string representation of the given anonymous class', function () {
+    const res = valueToString(class {});
+    expect(res).to.be.eq('Class');
+  });
+
+  it('returns a string representation of the given named class', function () {
     class MyClass {}
     const res = valueToString(MyClass);
-    expect(res).to.be.eq('Function');
+    expect(res).to.be.eq('MyClass');
   });
 
   it('returns a string representation of the given class constructor', function () {

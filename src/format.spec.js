@@ -85,7 +85,7 @@ describe('format', function () {
       expect(res).to.be.eq('function () {}');
     });
 
-    it('converts the given pattern of a shorthand function to a string', function () {
+    it('converts the given pattern of an anonymous function to a string', function () {
       const res = format(() => undefined);
       expect(res).to.be.eq('() => undefined');
     });
@@ -96,7 +96,12 @@ describe('format', function () {
       expect(res).to.be.eq('function foo() {}');
     });
 
-    it('converts the given pattern of a class to a string', function () {
+    it('converts the given pattern of an anonymous class to a string', function () {
+      const res = format(class {});
+      expect(res).to.be.eq('class {}');
+    });
+
+    it('converts the given pattern of a named class to a string', function () {
       class MyClass {}
       const res = format(MyClass);
       expect(res).to.be.eq('class MyClass {}');
@@ -227,7 +232,7 @@ describe('format', function () {
       expect(res).to.be.eq('function () {}');
     });
 
-    it('returns a string representation of the given shorthand function', function () {
+    it('returns a string representation of the given anonymous function', function () {
       const res = format('%s', () => undefined);
       expect(res).to.be.eq('() => undefined');
     });
@@ -238,7 +243,12 @@ describe('format', function () {
       expect(res).to.be.eq('function foo() {}');
     });
 
-    it('returns a string representation of the given class', function () {
+    it('returns a string representation of the given anonymous class', function () {
+      const res = format('%s', class {});
+      expect(res).to.be.eq('class {}');
+    });
+
+    it('returns a string representation of the given named class', function () {
       class MyClass {}
       const res = format('%s', MyClass);
       expect(res).to.be.eq('class MyClass {}');
@@ -354,7 +364,7 @@ describe('format', function () {
       expect(res).to.be.eq('NaN');
     });
 
-    it('returns a string representation of the given shorthand function', function () {
+    it('returns a string representation of the given anonymous function', function () {
       const res = format('%d', () => undefined);
       expect(res).to.be.eq('NaN');
     });
@@ -365,7 +375,12 @@ describe('format', function () {
       expect(res).to.be.eq('NaN');
     });
 
-    it('returns a string representation of the given class', function () {
+    it('returns a string representation of the given anonymous class', function () {
+      const res = format('%d', class {});
+      expect(res).to.be.eq('NaN');
+    });
+
+    it('returns a string representation of the given named class', function () {
       class MyClass {}
       const res = format('%d', MyClass);
       expect(res).to.be.eq('NaN');
@@ -471,7 +486,7 @@ describe('format', function () {
       expect(res).to.be.eq('undefined');
     });
 
-    it('returns a string representation of the given shorthand function', function () {
+    it('returns a string representation of the given anonymous function', function () {
       const res = format('%j', () => undefined);
       expect(res).to.be.eq('undefined');
     });
@@ -482,7 +497,12 @@ describe('format', function () {
       expect(res).to.be.eq('undefined');
     });
 
-    it('returns a string representation of the given class', function () {
+    it('returns a string representation of the given anonymous class', function () {
+      const res = format('%j', class {});
+      expect(res).to.be.eq('undefined');
+    });
+
+    it('returns a string representation of the given named class', function () {
       class MyClass {}
       const res = format('%j', MyClass);
       expect(res).to.be.eq('undefined');
@@ -602,7 +622,7 @@ describe('format', function () {
       expect(res).to.be.eq('Function');
     });
 
-    it('returns a string representation of the given shorthand function', function () {
+    it('returns a string representation of the given anonymous function', function () {
       const res = format('%v', () => undefined);
       expect(res).to.be.eq('Function');
     });
@@ -613,10 +633,15 @@ describe('format', function () {
       expect(res).to.be.eq('Function');
     });
 
-    it('returns a string representation of the given class', function () {
+    it('returns a string representation of the given anonymous class', function () {
+      const res = format('%v', class {});
+      expect(res).to.be.eq('Class');
+    });
+
+    it('returns a string representation of the given named class', function () {
       class MyClass {}
       const res = format('%v', MyClass);
-      expect(res).to.be.eq('Function');
+      expect(res).to.be.eq('MyClass');
     });
 
     it('returns a string representation of the given class constructor', function () {
@@ -724,7 +749,7 @@ describe('format', function () {
         expect(res).to.be.eq('Function');
       });
 
-      it('returns a string representation of the given shorthand function', function () {
+      it('returns a string representation of the given anonymous function', function () {
         const res = format('%l', () => undefined);
         expect(res).to.be.eq('Function');
       });
@@ -735,10 +760,15 @@ describe('format', function () {
         expect(res).to.be.eq('Function');
       });
 
-      it('returns a string representation of the given class', function () {
+      it('returns a string representation of the given anonymous class', function () {
+        const res = format('%l', class {});
+        expect(res).to.be.eq('Class');
+      });
+
+      it('returns a string representation of the given named class', function () {
         class MyClass {}
         const res = format('%l', MyClass);
-        expect(res).to.be.eq('Function');
+        expect(res).to.be.eq('MyClass');
       });
 
       it('returns a string representation of the given class constructor', function () {
@@ -855,7 +885,7 @@ describe('format', function () {
         expect(res).to.be.eq('Function');
       });
 
-      it('returns an element representation of the given shorthand function', function () {
+      it('returns an element representation of the given anonymous function', function () {
         const res = format('%l', [() => undefined]);
         expect(res).to.be.eq('Function');
       });
@@ -866,10 +896,15 @@ describe('format', function () {
         expect(res).to.be.eq('Function');
       });
 
-      it('returns an element representation of the given class', function () {
+      it('returns an element representation of the given anonymous class', function () {
+        const res = format('%l', [class {}]);
+        expect(res).to.be.eq('Class');
+      });
+
+      it('returns an element representation of the given named class', function () {
         class MyClass {}
         const res = format('%l', [MyClass]);
-        expect(res).to.be.eq('Function');
+        expect(res).to.be.eq('MyClass');
       });
 
       it('returns an element representation of the given class constructor', function () {

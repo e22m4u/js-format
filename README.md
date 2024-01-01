@@ -56,7 +56,7 @@ class MyClass {}
 
 format('> %v', new MyClass()); // > MyClass
 format('> %v', 'MyClass');     // > "MyClass"
-format('> %v', MyClass);       // > Function
+format('> %v', MyClass);       // > MyClass
 ```
 
 ### Спецификатор `%l`

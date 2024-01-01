@@ -79,7 +79,7 @@ describe('arrayToList', function () {
       expect(res).to.be.eq('Function');
     });
 
-    it('returns a string representation of the given shorthand function', function () {
+    it('returns a string representation of the given anonymous function', function () {
       const res = arrayToList(() => undefined);
       expect(res).to.be.eq('Function');
     });
@@ -90,10 +90,15 @@ describe('arrayToList', function () {
       expect(res).to.be.eq('Function');
     });
 
-    it('returns a string representation of the given class', function () {
+    it('returns a string representation of the given anonymous class', function () {
+      const res = arrayToList(class {});
+      expect(res).to.be.eq('Class');
+    });
+
+    it('returns a string representation of the given named class', function () {
       class MyClass {}
       const res = arrayToList(MyClass);
-      expect(res).to.be.eq('Function');
+      expect(res).to.be.eq('MyClass');
     });
 
     it('returns a string representation of the given class constructor', function () {
@@ -210,7 +215,7 @@ describe('arrayToList', function () {
       expect(res).to.be.eq('Function');
     });
 
-    it('returns an element representation of the given shorthand function', function () {
+    it('returns an element representation of the given anonymous function', function () {
       const res = arrayToList([() => undefined]);
       expect(res).to.be.eq('Function');
     });
@@ -221,10 +226,15 @@ describe('arrayToList', function () {
       expect(res).to.be.eq('Function');
     });
 
-    it('returns an element representation of the given class', function () {
+    it('returns an element representation of the given anonymous class', function () {
+      const res = arrayToList([class {}]);
+      expect(res).to.be.eq('Class');
+    });
+
+    it('returns an element representation of the given named class', function () {
       class MyClass {}
       const res = arrayToList([MyClass]);
-      expect(res).to.be.eq('Function');
+      expect(res).to.be.eq('MyClass');
     });
 
     it('returns an element representation of the given class constructor', function () {
