@@ -54,9 +54,9 @@ format('> %v', null);         // > null
 ```js
 class MyClass {}
 
-format('> %v', new MyClass()); // > MyClass
 format('> %v', 'MyClass');     // > "MyClass"
 format('> %v', MyClass);       // > MyClass
+format('> %v', new MyClass()); // > MyClass (экземпляр)
 ```
 
 ### Спецификатор `%l`
