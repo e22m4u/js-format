@@ -28,7 +28,6 @@ export function format(pattern) {
     pattern = pattern.replace(re, function (match, escaped, ptn, flag) {
       let arg = args.shift();
       switch (flag) {
-        // eslint-disable-next-line no-fallthrough
         case 's':
           arg = String(arg);
           break;
@@ -53,6 +52,6 @@ export function format(pattern) {
   // arguments remain after formatting
   if (args.length) pattern += ' ' + args.join(' ');
   // update escaped %% values
-  pattern = pattern.replace(/%{2,2}/g, '%');
+  pattern = pattern.replace(/%{2}/g, '%');
   return '' + pattern;
 }
