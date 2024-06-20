@@ -7,8 +7,6 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 export default [
   {
     languageOptions: {
-      ecmaVersion: 13,
-      sourceType: 'module',
       globals: {
         ...globals.node,
         ...globals.es2021,
