@@ -1,5 +1,18 @@
 import {isClass} from './utils/index.js';
 
+const BASE_CTOR_NAMES = [
+  'String',
+  'Number',
+  'Boolean',
+  'Object',
+  'Array',
+  'Function',
+  'Symbol',
+  'Map',
+  'Set',
+  'Date',
+];
+
 /**
  * Value to string.
  *
@@ -13,7 +26,9 @@ export function valueToString(input) {
     return String(input);
   if (isClass(input)) return input.name ? input.name : 'Class';
   if (input.constructor && input.constructor.name)
-    return input.constructor.name;
+    return BASE_CTOR_NAMES.includes(input.constructor.name)
+      ? input.constructor.name
+      : `${input.constructor.name} (instance)`;
   if (typeof input === 'object' && input.constructor == null) return 'Object';
   return String(input);
 }

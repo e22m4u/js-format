@@ -614,7 +614,7 @@ describe('format', function () {
     it('returns a string representation of the given class instance', function () {
       class MyClass {}
       const res = format('%v', new MyClass());
-      expect(res).to.be.eq('MyClass');
+      expect(res).to.be.eq('MyClass (instance)');
     });
 
     it('returns a string representation of the given function', function () {
@@ -741,7 +741,7 @@ describe('format', function () {
       it('returns a string representation of the given class instance', function () {
         class MyClass {}
         const res = format('%l', new MyClass());
-        expect(res).to.be.eq('MyClass');
+        expect(res).to.be.eq('MyClass (instance)');
       });
 
       it('returns a string representation of the given function', function () {
@@ -877,7 +877,7 @@ describe('format', function () {
       it('returns an element representation of the given class instance', function () {
         class MyClass {}
         const res = format('%l', [new MyClass()]);
-        expect(res).to.be.eq('MyClass');
+        expect(res).to.be.eq('MyClass (instance)');
       });
 
       it('returns an element representation of the given function', function () {

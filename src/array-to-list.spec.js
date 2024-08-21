@@ -71,7 +71,7 @@ describe('arrayToList', function () {
     it('returns a string representation of the given class instance', function () {
       class MyClass {}
       const res = arrayToList(new MyClass());
-      expect(res).to.be.eq('MyClass');
+      expect(res).to.be.eq('MyClass (instance)');
     });
 
     it('returns a string representation of the given function', function () {
@@ -207,7 +207,7 @@ describe('arrayToList', function () {
     it('returns an element representation of the given class instance', function () {
       class MyClass {}
       const res = arrayToList([new MyClass()]);
-      expect(res).to.be.eq('MyClass');
+      expect(res).to.be.eq('MyClass (instance)');
     });
 
     it('returns an element representation of the given function', function () {

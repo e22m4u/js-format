@@ -80,7 +80,7 @@ describe('valueToString', function () {
   it('returns a string representation of the given class instance', function () {
     class MyClass {}
     const res = valueToString(new MyClass());
-    expect(res).to.be.eq('MyClass');
+    expect(res).to.be.eq('MyClass (instance)');
   });
 
   it('returns a string representation of the given function', function () {
