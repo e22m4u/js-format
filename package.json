@@ -17,9 +17,9 @@
     "url": "https://github.com/e22m4u/js-format.git"
   },
   "keywords": [
+    "sprintf",
     "format",
-    "printf",
-    "errorf"
+    "error"
   ],
   "author": "e22m4u <e22m4u@yandex.ru>",
   "license": "MIT",
