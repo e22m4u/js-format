@@ -1,6 +1,6 @@
 ## @e22m4u/js-format
 
-[English](README.md) | Русский
+*[English](README.md) | Русский*
 
 ES-модуль расширенной версии утилиты `format` для Node.js
 

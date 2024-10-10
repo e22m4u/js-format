@@ -1,6 +1,6 @@
 ## @e22m4u/js-format
 
-English | [Русский](README-ru.md)
+*English | [Русский](README-ru.md)*
 
 Extended version of the `format` utility for Node.js
 
