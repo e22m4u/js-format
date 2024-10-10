@@ -1,100 +1,88 @@
 ## @e22m4u/js-format
 
-ES-модуль расширенной версии утилиты `format` для Node.js
+English | [Русский](README-ru.md)
 
-- стандартные спецификаторы `%s`, `%d` и `%j`
-- добавлен `%v` для вывода примитивных значений и имен конструктора
-- добавлен `%l` для вывода списка через запятую `1, 2, 3`
+Extended version of the `format` utility for Node.js
 
-Дополнительно:
-- встроенный класс `Errorf` с интерполяцией сообщения об ошибке
+- standard specifiers `%s`, `%d`, and `%j`
+- added `%v` for outputting primitive values and constructor names
+- added `%l` for outputting a comma-separated list `"foo", 10, true`
 
-## Установка
+Additionally:
+- built-in `Errorf` class with error message interpolation
+
+## Installation
 
 ```bash
 npm install @e22m4u/js-format
 ```
 
-Для загрузки ES-модуля требуется установить `"type": "module"` в файле
-`package.json`, или использовать `.mjs` расширение.
+To load the ES-module, you need to set `"type": "module"`
+in the `package.json` file, or use the `.mjs` extension.
 
-## Примеры
+## Examples
 
-Es-импорт
+ES-import
 
 ```js
 import {format} from '@e22m4u/js-format';
 ```
 
-### Спецификатор `%v`
+### `%v`
 
-Строки оборачиваются в кавычки, остальные примитивы приводятся
-к строке, а для более сложных типов выводится имя конструктора.
+Strings are wrapped in quotes, other primitives are converted
+to strings, and for more complex types the constructor name
+is output.
 
 ```js
-format('> %v', 'foo');        // > "foo"
-format('> %v', '');           // > ""
-format('> %v', 10);           // > 10
-format('> %v', 0);            // > 0
-format('> %v', NaN);          // > NaN
-format('> %v', Infinity);     // > Infinity
-format('> %v', true);         // > true
-format('> %v', false);        // > false
-format('> %v', {foo: 'bar'}); // > Object
-format('> %v', new Date());   // > Date
-format('> %v', new Map());    // > Map
-format('> %v', () => 10);     // > Function
-format('> %v', undefined);    // > undefined
-format('> %v', null);         // > null
+format('It is %v', 'foo');        // It is "foo"
+format('It is %v', '');           // It is ""
+format('It is %v', 10);           // It is 10
+format('It is %v', 0);            // It is 0
+format('It is %v', NaN);          // It is NaN
+format('It is %v', Infinity);     // It is Infinity
+format('It is %v', true);         // It is true
+format('It is %v', false);        // It is false
+format('It is %v', {foo: 'bar'}); // It is Object
+format('It is %v', new Date());   // It is Date
+format('It is %v', new Map());    // It is Map
+format('It is %v', () => 10);     // It is Function
+format('It is %v', undefined);    // It is undefined
+format('It is %v', null);         // It is null
 ```
 
-Спецификатор `%v` проектировался для вывода значений в сообщениях
-об ошибке, когда важно иметь представление об их типах. При этом,
-вывод содержимого объекта может быть избыточен для такой задачи.
-По этой причине, объекты приводятся к имени конструктора, что
-позволяет относительно точно определить тип выводимого значения.
+The `%v` specifier was designed to output values in error messages
+when it's important to have an idea of their types. However, outputting
+the contents of an object may be excessive for such a task. For this reason,
+objects are converted to the constructor name, which allows for a relatively
+accurate determination of the output value's type.
 
 ```js
 class MyClass {}
 
-format('> %v', 'MyClass');     // > "MyClass"
-format('> %v', MyClass);       // > MyClass
-format('> %v', new MyClass()); // > MyClass (instance)
+format('It is %v', 'MyClass');     // It is "MyClass"
+format('It is %v', MyClass);       // It is MyClass
+format('It is %v', new MyClass()); // It is MyClass (instance)
 ```
 
-### Спецификатор `%l`
+### `%l`
 
-Вывод элементов массива через запятую.
+Outputs array elements separated by commas.
 
 ```js
-format('> %l', ['foo', 10, true]); // > "foo", 10, true
+format('An array of %l', ['foo', 10, true]);
+// An array of "foo", 10, true
 ```
 
-Элементы массива приводятся к строке по логике спецификатора `%v`
+Array elements are converted to strings following the logic
+of the `%v` specifier.
 
-```js
-format('> %l', ['foo']);        // > "foo"
-format('> %l', ['']);           // > ""
-format('> %l', [10]);           // > 10
-format('> %l', [0]);            // > 0
-format('> %l', [NaN]);          // > NaN
-format('> %l', [Infinity]);     // > Infinity
-format('> %l', [true]);         // > true
-format('> %l', [false]);        // > false
-format('> %l', [{foo: 'bar'}]); // > Object
-format('> %l', [new Date()]);   // > Date
-format('> %l', [new Map()]);    // > Map
-format('> %l', [() => 10]);     // > Function
-format('> %l', [undefined]);    // > undefined
-format('> %l', [null]);         // > null
-```
+## The `Errorf` class
 
-## Errorf
+The `Errorf` class constructor passes arguments to the format function
+to form an error message.
 
-Конструктор класса `Errorf` передает аргументы функции `format`
-для формирования сообщения об ошибке.
-
-Пример:
+Example:
 
 ```js
 import {Errorf} from '@e22m4u/js-format';
@@ -107,12 +95,12 @@ throw new Errorf(
 // Error: It requires one of true, false, "y", "n", but Map given.
 ```
 
-## Тесты
+## Tests
 
 ```bash
 npm run test
 ```
 
-## Лицензия
+## License
 
 MIT
