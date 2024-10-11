@@ -2,11 +2,11 @@
 
 *English | [Русский](README-ru.md)*
 
-Extended version of the `format` utility for Node.js
+The string interpolation utility for JavaScript.
 
-- standard specifiers `%s`, `%d`, and `%j`
-- added `%v` for outputting primitive values and constructor names
-- added `%l` for outputting a comma-separated list `"foo", 10, true`
+- standard specifiers `%s`, `%d`, and `%j` (see [`util.format`](https://nodejs.org/api/util.html#utilformatformat-args))
+- `%v` outputs primitive value or constructor name
+- `%l` outputs an array as a comma-separated list `"foo", 10, true`
 
 Additionally:
 - built-in `Errorf` class with error message interpolation
