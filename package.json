@@ -4,10 +4,10 @@
   "description": "The string interpolation utility for JavaScript",
   "type": "module",
   "module": "./src/index.js",
-  "main": "./dist/cjs/index.js",
+  "main": "./dist/cjs/index.cjs",
   "exports": {
     "import": "./src/index.js",
-    "require": "./dist/cjs/index.js"
+    "require": "./dist/cjs/index.cjs"
   },
   "engines": {
     "node": ">=12"
