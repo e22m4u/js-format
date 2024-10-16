@@ -17,7 +17,7 @@ Additionally:
 npm install @e22m4u/js-format
 ```
 
-The module supports ESM and CommonJS standard.
+The module supports ESM and CommonJS standards.
 
 **ESM**
 
