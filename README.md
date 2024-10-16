@@ -17,17 +17,15 @@ Additionally:
 npm install @e22m4u/js-format
 ```
 
-## Import
-
 The module supports ESM and CommonJS standard.
 
-ESM
+**ESM**
 
 ```js
 import {format} from '@e22m4u/js-format';
 ```
 
-CommonJS
+**CommonJS**
 
 ```js
 const {format} = require('@e22m4u/js-format');
