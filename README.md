@@ -33,8 +33,6 @@ import {format} from '@e22m4u/js-format';
 const {format} = require('@e22m4u/js-format');
 ```
 
-### Specifiers
-
 The `format` method returns a formatted string using
 the first argument as a printf-like template which can
 contain zero or more format specifiers. Each specifier
