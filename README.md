@@ -17,7 +17,9 @@ Additionally:
 npm install @e22m4u/js-format
 ```
 
-## Examples
+## Import
+
+The module supports ESM and CommonJS standard.
 
 ESM
 
@@ -30,6 +32,22 @@ CommonJS
 ```js
 const {format} = require('@e22m4u/js-format');
 ```
+
+## Overview
+
+The `format` method returns a formatted string using
+the first argument as a printf-like template which can
+contain zero or more format specifiers. Each specifier
+is replaced with the converted value from the corresponding
+argument.
+
+| specifier | description                              |
+|-----------|------------------------------------------|
+| `%s`      | `String` will be used to convert a value |
+| `%d`      | `Number` will be used to convert a value |
+| `%j`      | JSON representation                      |
+| `%v`      | see below                                |
+| `%l`      | see below                                |
 
 ### %v
 
