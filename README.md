@@ -17,6 +17,8 @@ Additionally:
 npm install @e22m4u/js-format
 ```
 
+## Overview
+
 The module supports ESM and CommonJS standards.
 
 **ESM**
@@ -31,7 +33,7 @@ import {format} from '@e22m4u/js-format';
 const {format} = require('@e22m4u/js-format');
 ```
 
-## Overview
+### Specifiers
 
 The `format` method returns a formatted string using
 the first argument as a printf-like template which can
