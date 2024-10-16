@@ -17,15 +17,18 @@ Additionally:
 npm install @e22m4u/js-format
 ```
 
-To load the ES-module, you need to set `"type": "module"`
-in the `package.json` file, or use the `.mjs` extension.
-
 ## Examples
 
-ES-import
+ESM
 
 ```js
 import {format} from '@e22m4u/js-format';
+```
+
+CommonJS
+
+```js
+const {format} = require('@e22m4u/js-format');
 ```
 
 ### %v

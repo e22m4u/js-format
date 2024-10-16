@@ -17,15 +17,18 @@
 npm install @e22m4u/js-format
 ```
 
-Для загрузки ES-модуля требуется установить `"type": "module"` в файле
-`package.json`, или использовать `.mjs` расширение.
-
 ## Примеры
 
-Es-импорт
+ESM
 
 ```js
 import {format} from '@e22m4u/js-format';
+```
+
+CommonJS
+
+```js
+const {format} = require('@e22m4u/js-format');
 ```
 
 ### %v
