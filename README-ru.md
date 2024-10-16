@@ -21,17 +21,19 @@ npm install @e22m4u/js-format
 
 Модуль поддерживает ESM и CommonJS стандарты.
 
-**ESM**
+*ESM*
 
 ```js
 import {format} from '@e22m4u/js-format';
 ```
 
-**CommonJS**
+*CommonJS*
 
 ```js
 const {format} = require('@e22m4u/js-format');
 ```
+
+### Спецификаторы
 
 Метод `format` возвращает отформатированную строку, используя
 первый аргумент как *printf*-подобный шаблон, который может
