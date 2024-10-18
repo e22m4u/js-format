@@ -45,7 +45,8 @@ console.log(format(`A boolean required, but %s given.`, 'Oct 18 2024 13:04:30'))
 а для объектов выводят имя конструктора.
 
 ```js
-import {format} from '@e22m4u/js-format';
+// import {format} from 'util';
+import {format} from '@e22m4u/js-format'; // заменяем пакет "util"
 
 console.log(format(`A boolean required, but %v given.`, 8));
 console.log(format(`A boolean required, but %v given.`, '8'));

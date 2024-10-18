@@ -14,9 +14,10 @@ Additionally:
 ## Motivation
 
 Аn error message may need to interpolate certain values
-in the message string. In this case, a problem is to accurately
-determine the type of the output value, because the standard `%s`
-specifier treats strings, numbers, and other types the same way.
+in its message string. In this case, a problem is accurately
+determine the type of the output value, because the standard
+specifier `%s` treats strings, numbers, and other types
+in the same way.
 
 ```js
 import {format} from 'util';
@@ -44,7 +45,8 @@ with additional `%v` and `%l`, which wrap strings in quotes
 and output the constructor name for objects.
 
 ```js
-import {format} from '@e22m4u/js-format';
+// import {format} from 'util';
+import {format} from '@e22m4u/js-format'; // replace "util" package
 
 console.log(format(`A boolean required, but %v given.`, 8));
 console.log(format(`A boolean required, but %v given.`, '8'));
