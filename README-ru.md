@@ -68,8 +68,6 @@ console.log(format(`A boolean required, but %v given.`, 'Oct 18 2024 13:04:30'))
 npm install @e22m4u/js-format
 ```
 
-## Обзор
-
 Модуль поддерживает ESM и CommonJS стандарты.
 
 *ESM*
@@ -84,7 +82,7 @@ import {format} from '@e22m4u/js-format';
 const {format} = require('@e22m4u/js-format');
 ```
 
-### Спецификаторы
+## Спецификаторы
 
 Метод `format` возвращает отформатированную строку, используя
 первый аргумент как *printf*-подобный шаблон, который может
@@ -100,7 +98,7 @@ const {format} = require('@e22m4u/js-format');
 | `%v`      | см. ниже                                     |
 | `%l`      | см. ниже                                     |
 
-#### %v
+### %v
 
 Строки оборачиваются в кавычки, остальные примитивы приводятся
 к строке, а для более сложных типов выводится имя конструктора.
@@ -136,7 +134,7 @@ format('It is %v', MyClass);       // It is MyClass
 format('It is %v', new MyClass()); // It is MyClass (instance)
 ```
 
-#### %l
+### %l
 
 Вывод элементов массива через запятую.
 
