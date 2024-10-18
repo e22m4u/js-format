@@ -149,8 +149,8 @@ of the `%v` specifier.
 
 ## `Errorf` class
 
-The class constructor passes arguments to the format function
-to form an error message.
+The class constructor passes arguments to the `format`
+function to form an error message.
 
 Example:
 
