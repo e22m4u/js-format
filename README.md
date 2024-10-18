@@ -144,13 +144,13 @@ format('An array of %l', ['foo', 10, true]);
 // An array of "foo", 10, true
 ```
 
-Array elements are converted to strings following the logic
-of the `%v` specifier.
+Array elements are converted to strings following
+the logic of the `%v` specifier.
 
 ## `Errorf`
 
-The class constructor passes arguments to the `format`
-function to form an error message.
+The `Errorf` class constructor passes its arguments
+to the `format` function to form an error message.
 
 Example:
 
