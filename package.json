@@ -9,9 +9,6 @@
     "import": "./src/index.js",
     "require": "./dist/cjs/index.cjs"
   },
-  "engines": {
-    "node": ">=12"
-  },
   "scripts": {
     "lint": "tsc && eslint .",
     "lint:fix": "tsc && eslint . --fix",
