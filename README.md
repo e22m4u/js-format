@@ -40,9 +40,9 @@ console.log(format(`A boolean required, but %s given.`, 'Oct 18 2024 13:04:30'))
 // > A boolean required, but Oct 18 2024 13:04:30 given.
 ```
 
-The `@e22m4u/js-format` module extends the standard specifiers
-with additional `%v` and `%l`, which wrap strings in quotes
-and output the constructor name for objects.
+The module extends standard specifiers with additional
+`%v` and `%l`, which wrap strings in quotes and output
+the constructor name for objects.
 
 ```js
 // import {format} from 'util';
