@@ -100,7 +100,7 @@ argument.
 | `%v`      | see below                                |
 | `%l`      | see below                                |
 
-### %v
+#### %v
 
 Strings are wrapped in quotes, other primitives are converted
 to strings, and for more complex types the constructor name
@@ -137,7 +137,7 @@ format('It is %v', MyClass);       // It is MyClass
 format('It is %v', new MyClass()); // It is MyClass (instance)
 ```
 
-### %l
+#### %l
 
 Outputs array elements separated by commas.
 
@@ -149,9 +149,9 @@ format('An array of %l', ['foo', 10, true]);
 Array elements are converted to strings following the logic
 of the `%v` specifier.
 
-## Errorf
+## `Errorf` class
 
-The `Errorf` class constructor passes arguments to the format function
+The class constructor passes arguments to the format function
 to form an error message.
 
 Example:
