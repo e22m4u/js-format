@@ -147,7 +147,7 @@ format('An array of %l', ['foo', 10, true]);
 Array elements are converted to strings following the logic
 of the `%v` specifier.
 
-## `Errorf` class
+## `Errorf`
 
 The class constructor passes arguments to the `format`
 function to form an error message.
