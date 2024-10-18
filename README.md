@@ -11,6 +11,55 @@ The string interpolation utility for JavaScript.
 Additionally:
 - built-in `Errorf` class with error message interpolation
 
+## Motivation
+
+Аn error message may need to interpolate certain values
+in the message string. In this case, a problem is to accurately
+determine the type of the output value, because the standard `%s`
+specifier treats strings, numbers, and other types the same way.
+
+```js
+import {format} from 'util';
+
+console.log(format(`A boolean required, but %s given.`, 8));
+console.log(format(`A boolean required, but %s given.`, '8'));
+// > A boolean required, but 8 given.
+// > A boolean required, but 8 given.
+```
+
+In the example above, the string `'8'` and the number `8`
+are output identically. A similar problem occurs with objects.
+
+```js
+import {format} from 'util';
+
+console.log(format(`A boolean required, but %s given.`, new Date()));
+console.log(format(`A boolean required, but %s given.`, 'Oct 18 2024 13:04:30'));
+// > A boolean required, but Oct 18 2024 13:04:30 given.
+// > A boolean required, but Oct 18 2024 13:04:30 given.
+```
+
+The `@e22m4u/js-format` module extends the standard specifiers
+with additional `%v` and `%l`, which wrap strings in quotes
+and output the constructor name for objects.
+
+```js
+import {format} from '@e22m4u/js-format';
+
+console.log(format(`A boolean required, but %v given.`, 8));
+console.log(format(`A boolean required, but %v given.`, '8'));
+// > A boolean required, but 8 given.
+// > A boolean required, but "8" given.
+
+console.log(format(`A boolean required, but %v given.`, new Date()));
+console.log(format(`A boolean required, but %v given.`, 'Oct 18 2024 13:04:30'));
+// > A boolean required, but Date (instance) given.
+// > A boolean required, but "Oct 18 2024 13:04:30" given.
+```
+
+For more details about the new specifiers,
+see the [Specifiers](#Specifiers) section.
+
 ## Installation
 
 ```bash

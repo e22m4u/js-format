@@ -11,6 +11,56 @@
 Дополнительно:
 - встроенный класс `Errorf` с интерполяцией сообщения об ошибке
 
+## Мотивация
+
+При выводе сообщения об ошибке может возникнуть потребность
+включения некоторых значений в строку сообщения. В этом случае
+возникает проблема, когда невозможно точно определить тип
+выводимого значения, так как стандартный спецификатор `%s`
+одинаково обрабатывает строки, числа и другие типы.
+
+```js
+import {format} from 'util';
+
+console.log(format(`A boolean required, but %s given.`, 8));
+console.log(format(`A boolean required, but %s given.`, '8'));
+// > A boolean required, but 8 given.
+// > A boolean required, but 8 given.
+```
+
+В примере выше строка `'8'` и число `8` выводятся одинаково.
+Похожая проблема возникает при выводе объектов.
+
+```js
+import {format} from 'util';
+
+console.log(format(`A boolean required, but %s given.`, new Date()));
+console.log(format(`A boolean required, but %s given.`, 'Oct 18 2024 13:04:30'));
+// > A boolean required, but Oct 18 2024 13:04:30 given.
+// > A boolean required, but Oct 18 2024 13:04:30 given.
+```
+
+Модуль `@e22m4u/js-format` расширяет стандартные спецификаторы
+дополнительным `%v` и `%l`, которые оборачивают строки в кавычки,
+а для объектов выводят имя конструктора.
+
+```js
+import {format} from '@e22m4u/js-format';
+
+console.log(format(`A boolean required, but %v given.`, 8));
+console.log(format(`A boolean required, but %v given.`, '8'));
+// > A boolean required, but 8 given.
+// > A boolean required, but "8" given.
+
+console.log(format(`A boolean required, but %v given.`, new Date()));
+console.log(format(`A boolean required, but %v given.`, 'Oct 18 2024 13:04:30'));
+// > A boolean required, but Date (instance) given.
+// > A boolean required, but "Oct 18 2024 13:04:30" given.
+```
+
+Подробнее о новых спецификаторах см. в разделе
+[Спецификаторы](#Спецификаторы).
+
 ## Установка
 
 ```bash
