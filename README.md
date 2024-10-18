@@ -14,7 +14,7 @@ Additionally:
 ## Motivation
 
 Аn error message may need to interpolate certain values
-in its message string. In this case, a problem is accurately
+in the message string. In this case, a problem is accurately
 determine the type of the output value, because the standard
 specifier `%s` treats strings, numbers, and other types
 in the same way.
