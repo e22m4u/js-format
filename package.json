@@ -1,6 +1,6 @@
 {
   "name": "@e22m4u/js-format",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "The string interpolation utility for JavaScript",
   "type": "module",
   "types": "./src/index.d.ts",
