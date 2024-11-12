@@ -2,6 +2,7 @@ var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 var __export = (target, all) => {
   for (var name in all)
     __defProp(target, name, { get: all[name], enumerable: true });
@@ -29,6 +30,7 @@ function isClass(value) {
   if (!value) return false;
   return typeof value === "function" && /^class\s/.test(Function.prototype.toString.call(value));
 }
+__name(isClass, "isClass");
 
 // src/value-to-string.js
 var BASE_CTOR_NAMES = [
@@ -54,6 +56,7 @@ function valueToString(input) {
   if (typeof input === "object" && input.constructor == null) return "Object";
   return String(input);
 }
+__name(valueToString, "valueToString");
 
 // src/array-to-list.js
 var SEPARATOR = ", ";
@@ -62,6 +65,7 @@ function arrayToList(input) {
     return input.map(valueToString).join(SEPARATOR);
   return valueToString(input);
 }
+__name(arrayToList, "arrayToList");
 
 // src/format.js
 function format(pattern) {
@@ -101,9 +105,10 @@ function format(pattern) {
   pattern = pattern.replace(/%{2}/g, "%");
   return "" + pattern;
 }
+__name(format, "format");
 
 // src/errorf.js
-var Errorf = class extends Error {
+var _Errorf = class _Errorf extends Error {
   /**
    * Constructor.
    *
@@ -115,6 +120,8 @@ var Errorf = class extends Error {
     super(message);
   }
 };
+__name(_Errorf, "Errorf");
+var Errorf = _Errorf;
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Errorf,
