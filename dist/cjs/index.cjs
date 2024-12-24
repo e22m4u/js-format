@@ -18,12 +18,12 @@ var __copyProps = (to, from, except, desc) => {
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
 // src/index.js
-var src_exports = {};
-__export(src_exports, {
+var index_exports = {};
+__export(index_exports, {
   Errorf: () => Errorf,
   format: () => format
 });
-module.exports = __toCommonJS(src_exports);
+module.exports = __toCommonJS(index_exports);
 
 // src/utils/is-class.js
 function isClass(value) {
