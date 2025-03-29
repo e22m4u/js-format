@@ -2,6 +2,18 @@
   "name": "@e22m4u/js-format",
   "version": "0.1.7",
   "description": "The string interpolation utility for JavaScript",
+  "author": "e22m4u <e22m4u@yandex.ru>",
+  "license": "MIT",
+  "keywords": [
+    "sprintf",
+    "format",
+    "error"
+  ],
+  "homepage": "https://github.com/e22m4u/js-format",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/e22m4u/js-format.git"
+  },
   "type": "module",
   "types": "./src/index.d.ts",
   "module": "./src/index.js",
@@ -23,18 +35,6 @@
     "build:cjs": "rimraf ./dist/cjs && node --no-warnings=ExperimentalWarning build-cjs.js",
     "prepare": "husky"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/e22m4u/js-format.git"
-  },
-  "keywords": [
-    "sprintf",
-    "format",
-    "error"
-  ],
-  "author": "e22m4u <e22m4u@yandex.ru>",
-  "license": "MIT",
-  "homepage": "https://github.com/e22m4u/js-format",
   "devDependencies": {
     "@commitlint/cli": "~19.8.0",
     "@commitlint/config-conventional": "~19.8.0",
