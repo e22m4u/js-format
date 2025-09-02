@@ -8,12 +8,12 @@ import {valueToString} from './value-to-string.js';
 const SEPARATOR = ', ';
 
 /**
- * Array to list.
+ * Array to string.
  *
  * @param {any} input
  * @return {string}
  */
-export function arrayToList(input) {
+export function arrayToString(input) {
   if (Array.isArray(input) && input.length)
     return input.map(valueToString).join(SEPARATOR);
   return valueToString(input);

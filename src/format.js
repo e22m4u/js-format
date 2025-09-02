@@ -1,4 +1,4 @@
-import {arrayToList} from './array-to-list.js';
+import {arrayToString} from './array-to-string.js';
 import {valueToString} from './value-to-string.js';
 
 /**
@@ -11,7 +11,7 @@ import {valueToString} from './value-to-string.js';
  *
  * extras:
  * v - value (valueToString.js)
- * l - list (arrayToList.js)
+ * l - list (arrayToString.js)
  *
  * @param {string} pattern
  * @return {string}
@@ -41,7 +41,7 @@ export function format(pattern) {
           arg = valueToString(arg);
           break;
         case 'l':
-          arg = arrayToList(arg);
+          arg = arrayToString(arg);
           break;
       }
       if (!escaped) return arg;

@@ -8,7 +8,7 @@
  *
  * extras:
  * v - value (valueToString.js)
- * l - list (arrayToList.js)
+ * l - list (arrayToString.js)
  *
  * @param pattern
  * @param args

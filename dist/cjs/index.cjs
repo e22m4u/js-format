@@ -21,7 +21,10 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 var index_exports = {};
 __export(index_exports, {
   Errorf: () => Errorf,
-  format: () => format
+  InvalidArgumentError: () => InvalidArgumentError,
+  arrayToString: () => arrayToString,
+  format: () => format,
+  valueToString: () => valueToString
 });
 module.exports = __toCommonJS(index_exports);
 
@@ -58,14 +61,14 @@ function valueToString(input) {
 }
 __name(valueToString, "valueToString");
 
-// src/array-to-list.js
+// src/array-to-string.js
 var SEPARATOR = ", ";
-function arrayToList(input) {
+function arrayToString(input) {
   if (Array.isArray(input) && input.length)
     return input.map(valueToString).join(SEPARATOR);
   return valueToString(input);
 }
-__name(arrayToList, "arrayToList");
+__name(arrayToString, "arrayToString");
 
 // src/format.js
 function format(pattern) {
@@ -93,7 +96,7 @@ function format(pattern) {
           arg = valueToString(arg);
           break;
         case "l":
-          arg = arrayToList(arg);
+          arg = arrayToString(arg);
           break;
       }
       if (!escaped) return arg;
@@ -122,8 +125,17 @@ var _Errorf = class _Errorf extends Error {
 };
 __name(_Errorf, "Errorf");
 var Errorf = _Errorf;
+
+// src/invalid-argument-error.js
+var _InvalidArgumentError = class _InvalidArgumentError extends Errorf {
+};
+__name(_InvalidArgumentError, "InvalidArgumentError");
+var InvalidArgumentError = _InvalidArgumentError;
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Errorf,
-  format
+  InvalidArgumentError,
+  arrayToString,
+  format,
+  valueToString
 });

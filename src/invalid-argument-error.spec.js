@@ -1,14 +1,15 @@
 import {expect} from 'chai';
 import {Errorf} from './errorf.js';
+import {InvalidArgumentError} from './invalid-argument-error.js';
 
-describe('Errorf', function () {
-  it('should extend Error class and should not require arguments', function () {
-    const error = new Errorf();
-    expect(error).to.be.instanceof(Error);
+describe('InvalidArgumentError', function () {
+  it('should extend Errorf class and should not require arguments', function () {
+    const error = new InvalidArgumentError();
+    expect(error).to.be.instanceof(Errorf);
   });
 
   it('should interpolate the given message', function () {
-    const error = new Errorf(
+    const error = new InvalidArgumentError(
       'It requires one of %l, but %v given.',
       [true, false, 'y', 'n'],
       new Map(),

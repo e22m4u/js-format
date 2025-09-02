@@ -155,11 +155,30 @@ format('An array of %l', ['foo', 10, true]);
 import {Errorf} from '@e22m4u/js-format';
 
 throw new Errorf(
-  'It requires one of %l, but %v given.',
+  'It requires one of %l, but %v was given.',
   [true, false, 'y', 'n'],
   new Map(),
 );
-// Error: It requires one of true, false, "y", "n", but Map given.
+// Error: It requires one of true, false, "y", "n", but Map was given.
+```
+
+## `InvalidArgumentError`
+
+Класс является псевдонимом для `Errorf`, полностью наследуя его поведение.
+В некоторых ситуациях может быть более осмысленным, чем базовый класс.
+
+```js
+import {InvalidArgumentError} from '@e22m4u/js-format';
+
+function capitalize(input) {
+  if (typeof input !== 'string')
+    throw new InvalidArgumentError(
+      'The `capitalize` function requires the input argument ' +
+        'to be a String, but %v was given.',
+      input,
+    );
+  // ...
+}
 ```
 
 ## Тесты
