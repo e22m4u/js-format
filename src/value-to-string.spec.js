@@ -94,6 +94,7 @@ describe('valueToString', function () {
   });
 
   it('returns a string representation of the given named function', function () {
+    // eslint-disable-next-line jsdoc/require-jsdoc
     function foo() {}
     const res = valueToString(foo);
     expect(res).to.be.eq('Function');

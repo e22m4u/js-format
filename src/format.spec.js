@@ -91,6 +91,7 @@ describe('format', function () {
     });
 
     it('converts the given pattern of a named function to a string', function () {
+      // eslint-disable-next-line jsdoc/require-jsdoc
       function foo() {}
       const res = format(foo);
       expect(res).to.be.eq('function foo() {}');
@@ -238,6 +239,7 @@ describe('format', function () {
     });
 
     it('returns a string representation of the given named function', function () {
+      // eslint-disable-next-line jsdoc/require-jsdoc
       function foo() {}
       const res = format('%s', foo);
       expect(res).to.be.eq('function foo() {}');
@@ -370,6 +372,7 @@ describe('format', function () {
     });
 
     it('returns a string representation of the given named function', function () {
+      // eslint-disable-next-line jsdoc/require-jsdoc
       function foo() {}
       const res = format('%d', foo);
       expect(res).to.be.eq('NaN');
@@ -492,6 +495,7 @@ describe('format', function () {
     });
 
     it('returns a string representation of the given named function', function () {
+      // eslint-disable-next-line jsdoc/require-jsdoc
       function foo() {}
       const res = format('%j', foo);
       expect(res).to.be.eq('undefined');
@@ -628,6 +632,7 @@ describe('format', function () {
     });
 
     it('returns a string representation of the given named function', function () {
+      // eslint-disable-next-line jsdoc/require-jsdoc
       function foo() {}
       const res = format('%v', foo);
       expect(res).to.be.eq('Function');
@@ -755,6 +760,7 @@ describe('format', function () {
       });
 
       it('returns a string representation of the given named function', function () {
+        // eslint-disable-next-line jsdoc/require-jsdoc
         function foo() {}
         const res = format('%l', foo);
         expect(res).to.be.eq('Function');
@@ -891,6 +897,7 @@ describe('format', function () {
       });
 
       it('returns an element representation of the given named function', function () {
+        // eslint-disable-next-line jsdoc/require-jsdoc
         function foo() {}
         const res = format('%l', [foo]);
         expect(res).to.be.eq('Function');

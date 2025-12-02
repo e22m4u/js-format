@@ -13,20 +13,21 @@ import {valueToString} from './value-to-string.js';
  * v - value (valueToString.js)
  * l - list (arrayToString.js)
  *
- * @param {string} pattern
- * @return {string}
+ * @param {*} pattern
+ * @param {...*} args
+ * @returns {string}
  */
-export function format(pattern) {
+export function format(pattern, ...args) {
   if (pattern instanceof Date) {
     pattern = pattern.toISOString();
   } else if (typeof pattern !== 'string') {
     pattern = String(pattern);
   }
   const re = /(%?)(%([sdjvl]))/g;
-  const args = Array.prototype.slice.call(arguments, 1);
-  if (args.length) {
+  const argsQueue = [...args];
+  if (argsQueue.length) {
     pattern = pattern.replace(re, function (match, escaped, ptn, flag) {
-      let arg = args.shift();
+      let arg = argsQueue.shift();
       switch (flag) {
         case 's':
           arg = String(arg);
@@ -45,12 +46,12 @@ export function format(pattern) {
           break;
       }
       if (!escaped) return arg;
-      args.unshift(arg);
+      argsQueue.unshift(arg);
       return match;
     });
   }
-  // arguments remain after formatting
-  if (args.length) pattern += ' ' + args.join(' ');
+  // has arguments after interpolation
+  if (argsQueue.length) pattern += ' ' + argsQueue.join(' ');
   // update escaped %% values
   pattern = pattern.replace(/%{2}/g, '%');
   return '' + pattern;
