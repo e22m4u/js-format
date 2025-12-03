@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-jsdoc */
 import {expect} from 'chai';
 import {arrayToString} from './array-to-string.js';
 

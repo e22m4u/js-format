@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-jsdoc */
 import {expect} from 'chai';
 import {valueToString} from './value-to-string.js';
 
