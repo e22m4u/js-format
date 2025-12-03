@@ -85,7 +85,6 @@ describe('arrayToString', function () {
     });
 
     it('returns a string representation of the given named function', function () {
-      // eslint-disable-next-line jsdoc/require-jsdoc
       function foo() {}
       const res = arrayToString(foo);
       expect(res).to.be.eq('Function');
@@ -222,7 +221,6 @@ describe('arrayToString', function () {
     });
 
     it('returns an element representation of the given named function', function () {
-      // eslint-disable-next-line jsdoc/require-jsdoc
       function foo() {}
       const res = arrayToString([foo]);
       expect(res).to.be.eq('Function');

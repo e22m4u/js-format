@@ -71,17 +71,17 @@ function arrayToString(input) {
 __name(arrayToString, "arrayToString");
 
 // src/format.js
-function format(pattern, ...args) {
+function format(pattern) {
   if (pattern instanceof Date) {
     pattern = pattern.toISOString();
   } else if (typeof pattern !== "string") {
     pattern = String(pattern);
   }
   const re = /(%?)(%([sdjvl]))/g;
-  const argsQueue = [...args];
-  if (argsQueue.length) {
+  const args = Array.prototype.slice.call(arguments, 1);
+  if (args.length) {
     pattern = pattern.replace(re, function(match, escaped, ptn, flag) {
-      let arg = argsQueue.shift();
+      let arg = args.shift();
       switch (flag) {
         case "s":
           arg = String(arg);
@@ -100,11 +100,11 @@ function format(pattern, ...args) {
           break;
       }
       if (!escaped) return arg;
-      argsQueue.unshift(arg);
+      args.unshift(arg);
       return match;
     });
   }
-  if (argsQueue.length) pattern += " " + argsQueue.join(" ");
+  if (args.length) pattern += " " + args.join(" ");
   pattern = pattern.replace(/%{2}/g, "%");
   return "" + pattern;
 }
@@ -116,7 +116,7 @@ var _Errorf = class _Errorf extends Error {
    * Constructor.
    *
    * @param {string|undefined} pattern
-   * @param {*} args
+   * @param {any} args
    */
   constructor(pattern = void 0, ...args) {
     const message = pattern != null ? format(pattern, ...args) : void 0;

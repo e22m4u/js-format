@@ -16,8 +16,8 @@ const BASE_CTOR_NAMES = [
 /**
  * Value to string.
  *
- * @param {*} input
- * @returns {string}
+ * @param {any} input
+ * @return {string}
  */
 export function valueToString(input) {
   if (input == null) return String(input);

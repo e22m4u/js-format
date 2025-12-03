@@ -10,8 +10,8 @@ const SEPARATOR = ', ';
 /**
  * Array to string.
  *
- * @param {*} input
- * @returns {string}
+ * @param {any} input
+ * @return {string}
  */
 export function arrayToString(input) {
   if (Array.isArray(input) && input.length)
