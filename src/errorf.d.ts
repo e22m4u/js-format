@@ -8,5 +8,5 @@ export declare class Errorf extends Error {
    * @param pattern
    * @param args
    */
-  constructor(pattern: string, ...args: any[]);
+  constructor(pattern?: string, ...args: any[]);
 }

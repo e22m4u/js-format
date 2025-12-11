@@ -122,9 +122,13 @@ describe('valueToString', function () {
     expect(res).to.be.eq('Symbol');
   });
 
-  it('returns a string representation of the given named symbol', function () {
-    const res = valueToString(Symbol('foo'));
-    expect(res).to.be.eq('Symbol');
+  it('returns a string representation of the given symbol with a description', function () {
+    expect(valueToString(Symbol('foo'))).to.be.eq('Symbol("foo")');
+    expect(valueToString(Symbol(''))).to.be.eq('Symbol("")');
+    expect(valueToString(Symbol(10))).to.be.eq('Symbol("10")');
+    expect(valueToString(Symbol(0))).to.be.eq('Symbol("0")');
+    expect(valueToString(Symbol(true))).to.be.eq('Symbol("true")');
+    expect(valueToString(Symbol(false))).to.be.eq('Symbol("false")');
   });
 
   it('returns a string representation of the given undefined', function () {

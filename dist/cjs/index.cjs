@@ -50,14 +50,30 @@ var BASE_CTOR_NAMES = [
   "Date"
 ];
 function valueToString(input) {
-  if (input == null) return String(input);
-  if (typeof input === "string") return `"${input}"`;
-  if (typeof input === "number" || typeof input === "boolean")
+  if (input == null) {
     return String(input);
-  if (isClass(input)) return input.name ? input.name : "Class";
-  if (input.constructor && input.constructor.name)
+  }
+  if (typeof input === "string") {
+    return `"${input}"`;
+  }
+  if (typeof input === "number" || typeof input === "boolean") {
+    return String(input);
+  }
+  if (typeof input === "symbol") {
+    if (input.description != null) {
+      return `Symbol("${input.description}")`;
+    }
+    return "Symbol";
+  }
+  if (isClass(input)) {
+    return input.name ? input.name : "Class";
+  }
+  if (input.constructor && input.constructor.name) {
     return BASE_CTOR_NAMES.includes(input.constructor.name) ? input.constructor.name : `${input.constructor.name} (instance)`;
-  if (typeof input === "object" && input.constructor == null) return "Object";
+  }
+  if (typeof input === "object" && input.constructor == null) {
+    return "Object";
+  }
   return String(input);
 }
 __name(valueToString, "valueToString");
@@ -116,10 +132,10 @@ var _Errorf = class _Errorf extends Error {
   /**
    * Constructor.
    *
-   * @param {string|undefined} pattern
-   * @param {*} args
+   * @param {string} [pattern]
+   * @param {...*} args
    */
-  constructor(pattern = void 0, ...args) {
+  constructor(pattern, ...args) {
     const message = pattern != null ? format(pattern, ...args) : void 0;
     super(message);
   }

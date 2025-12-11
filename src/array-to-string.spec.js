@@ -113,9 +113,9 @@ describe('arrayToString', function () {
       expect(res).to.be.eq('Symbol');
     });
 
-    it('returns a string representation of the given named symbol', function () {
+    it('returns a string representation of the given symbol with a description', function () {
       const res = arrayToString(Symbol('foo'));
-      expect(res).to.be.eq('Symbol');
+      expect(res).to.be.eq('Symbol("foo")');
     });
 
     it('returns a string representation of the given undefined', function () {
@@ -249,9 +249,9 @@ describe('arrayToString', function () {
       expect(res).to.be.eq('Symbol');
     });
 
-    it('returns an element representation of the given named symbol', function () {
+    it('returns an element representation of the given symbol with a description', function () {
       const res = arrayToString([Symbol('foo')]);
-      expect(res).to.be.eq('Symbol');
+      expect(res).to.be.eq('Symbol("foo")');
     });
 
     it('returns an element representation of the given undefined', function () {

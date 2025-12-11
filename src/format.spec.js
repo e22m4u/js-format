@@ -119,7 +119,7 @@ describe('format', function () {
       expect(res).to.be.eq('Symbol()');
     });
 
-    it('converts the given pattern of a named symbol to a string', function () {
+    it('converts the given pattern of a symbol with a description to a string', function () {
       const res = format('%s', Symbol('foo'));
       expect(res).to.be.eq('Symbol(foo)');
     });
@@ -266,7 +266,7 @@ describe('format', function () {
       expect(res).to.be.eq('Symbol()');
     });
 
-    it('returns a string representation of the given named symbol', function () {
+    it('returns a string representation of the given symbol with a description', function () {
       const res = format('%s', Symbol('foo'));
       expect(res).to.be.eq('Symbol(foo)');
     });
@@ -520,7 +520,7 @@ describe('format', function () {
       expect(res).to.be.eq('undefined');
     });
 
-    it('returns a string representation of the given named symbol', function () {
+    it('returns a string representation of the given symbol with a description', function () {
       const res = format('%j', Symbol('foo'));
       expect(res).to.be.eq('undefined');
     });
@@ -656,9 +656,9 @@ describe('format', function () {
       expect(res).to.be.eq('Symbol');
     });
 
-    it('returns a string representation of the given named symbol', function () {
+    it('returns a string representation of the given symbol with a description', function () {
       const res = format('%v', Symbol('foo'));
-      expect(res).to.be.eq('Symbol');
+      expect(res).to.be.eq('Symbol("foo")');
     });
 
     it('returns a string representation of the given undefined', function () {
@@ -783,9 +783,9 @@ describe('format', function () {
         expect(res).to.be.eq('Symbol');
       });
 
-      it('returns a string representation of the given named symbol', function () {
+      it('returns a string representation of the given symbol with a description', function () {
         const res = format('%l', Symbol('foo'));
-        expect(res).to.be.eq('Symbol');
+        expect(res).to.be.eq('Symbol("foo")');
       });
 
       it('returns a string representation of the given undefined', function () {
@@ -919,9 +919,9 @@ describe('format', function () {
         expect(res).to.be.eq('Symbol');
       });
 
-      it('returns an element representation of the given named symbol', function () {
+      it('returns an element representation of the given symbol with a description', function () {
         const res = format('%l', [Symbol('foo')]);
-        expect(res).to.be.eq('Symbol');
+        expect(res).to.be.eq('Symbol("foo")');
       });
 
       it('returns an element representation of the given undefined', function () {
