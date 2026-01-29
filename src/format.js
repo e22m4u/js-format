@@ -45,13 +45,17 @@ export function format(pattern, ...args) {
           arg = arrayToString(arg);
           break;
       }
-      if (!escaped) return arg;
+      if (!escaped) {
+        return arg;
+      }
       argsQueue.unshift(arg);
       return match;
     });
   }
   // has arguments after interpolation
-  if (argsQueue.length) pattern += ' ' + argsQueue.join(' ');
+  if (argsQueue.length) {
+    pattern += ' ' + argsQueue.join(' ');
+  }
   // update escaped %% values
   pattern = pattern.replace(/%{2}/g, '%');
   return '' + pattern;

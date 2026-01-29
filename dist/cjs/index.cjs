@@ -31,7 +31,9 @@ module.exports = __toCommonJS(index_exports);
 
 // src/utils/is-class.js
 function isClass(value) {
-  if (!value) return false;
+  if (!value) {
+    return false;
+  }
   return typeof value === "function" && /^class\s/.test(Function.prototype.toString.call(value));
 }
 __name(isClass, "isClass");
@@ -81,8 +83,9 @@ __name(valueToString, "valueToString");
 // src/array-to-string.js
 var SEPARATOR = ", ";
 function arrayToString(input) {
-  if (Array.isArray(input) && input.length)
+  if (Array.isArray(input) && input.length) {
     return input.map(valueToString).join(SEPARATOR);
+  }
   return valueToString(input);
 }
 __name(arrayToString, "arrayToString");
@@ -116,12 +119,16 @@ function format(pattern, ...args) {
           arg = arrayToString(arg);
           break;
       }
-      if (!escaped) return arg;
+      if (!escaped) {
+        return arg;
+      }
       argsQueue.unshift(arg);
       return match;
     });
   }
-  if (argsQueue.length) pattern += " " + argsQueue.join(" ");
+  if (argsQueue.length) {
+    pattern += " " + argsQueue.join(" ");
+  }
   pattern = pattern.replace(/%{2}/g, "%");
   return "" + pattern;
 }
