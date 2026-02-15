@@ -14,7 +14,7 @@ const SEPARATOR = ', ';
  * @returns {string}
  */
 export function arrayToString(input) {
-  if (Array.isArray(input) && input.length) {
+  if (Array.isArray(input)) {
     return input.map(valueToString).join(SEPARATOR);
   }
   return valueToString(input);

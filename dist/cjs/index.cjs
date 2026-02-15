@@ -83,7 +83,7 @@ __name(valueToString, "valueToString");
 // src/array-to-string.js
 var SEPARATOR = ", ";
 function arrayToString(input) {
-  if (Array.isArray(input) && input.length) {
+  if (Array.isArray(input)) {
     return input.map(valueToString).join(SEPARATOR);
   }
   return valueToString(input);

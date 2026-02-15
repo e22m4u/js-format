@@ -137,7 +137,7 @@ describe('arrayToString', function () {
 
     it('returns a string representation of the given empty array', function () {
       const res = arrayToString([]);
-      expect(res).to.be.eq('Array');
+      expect(res).to.be.eq('');
     });
 
     it('returns an element representation of the given string', function () {

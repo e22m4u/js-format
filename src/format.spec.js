@@ -807,7 +807,7 @@ describe('format', function () {
 
       it('returns a string representation of the given empty array', function () {
         const res = format('%l', []);
-        expect(res).to.be.eq('Array');
+        expect(res).to.be.eq('');
       });
 
       it('returns an element representation of the given string', function () {
