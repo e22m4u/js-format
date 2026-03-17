@@ -20,10 +20,10 @@
 ```js
 import {format} from 'util';
 
-console.log(format(`A boolean required, but %s given.`, 8));
-console.log(format(`A boolean required, but %s given.`, '8'));
-// > A boolean required, but 8 given.
-// > A boolean required, but 8 given.
+console.log(format('Boolean is required, but %s was given.', 8));
+console.log(format('Boolean is required, but %s was given.', '8'));
+// > Boolean is required, but 8 was given.
+// > Boolean is required, but 8 was given.
 ```
 
 В примере выше строка `'8'` и число `8` выводятся одинаково.
@@ -32,10 +32,10 @@ console.log(format(`A boolean required, but %s given.`, '8'));
 ```js
 import {format} from 'util';
 
-console.log(format(`A boolean required, but %s given.`, new Date()));
-console.log(format(`A boolean required, but %s given.`, 'Oct 18 2024 13:04:30'));
-// > A boolean required, but Oct 18 2024 13:04:30 given.
-// > A boolean required, but Oct 18 2024 13:04:30 given.
+console.log(format('Boolean is required, but %s was given.', new Date()));
+console.log(format('Boolean is required, but %s was given.', 'Oct 18 2024 13:04:30'));
+// > Boolean is required, but Oct 18 2024 13:04:30 was given.
+// > Boolean is required, but Oct 18 2024 13:04:30 was given.
 ```
 
 Данный модуль расширяет стандартные спецификаторы дополнительным
@@ -46,15 +46,15 @@ console.log(format(`A boolean required, but %s given.`, 'Oct 18 2024 13:04:30'))
 // import {format} from 'util';
 import {format} from '@e22m4u/js-format'; // заменяем пакет "util"
 
-console.log(format(`A boolean required, but %v given.`, 8));
-console.log(format(`A boolean required, but %v given.`, '8'));
-// > A boolean required, but 8 given.
-// > A boolean required, but "8" given.
+console.log(format('Boolean is required, but %v was given.', 8));
+console.log(format('Boolean is required, but %v was given.', '8'));
+// > Boolean is required, but 8 was given.
+// > Boolean is required, but "8" was given.
 
-console.log(format(`A boolean required, but %v given.`, new Date()));
-console.log(format(`A boolean required, but %v given.`, 'Oct 18 2024 13:04:30'));
-// > A boolean required, but Date (instance) given.
-// > A boolean required, but "Oct 18 2024 13:04:30" given.
+console.log(format('Boolean is required, but %v was given.', new Date()));
+console.log(format('Boolean is required, but %v was given.', 'Oct 18 2024 13:04:30'));
+// > Boolean is required, but Date was given.
+// > Boolean is required, but "Oct 18 2024 13:04:30" was given.
 ```
 
 Подробнее о новых спецификаторах см. в разделе
@@ -102,20 +102,20 @@ const {format} = require('@e22m4u/js-format');
 к строке, а для более сложных типов выводится имя конструктора.
 
 ```js
-format('It is %v', 'foo');        // It is "foo"
-format('It is %v', '');           // It is ""
-format('It is %v', 10);           // It is 10
-format('It is %v', 0);            // It is 0
-format('It is %v', NaN);          // It is NaN
-format('It is %v', Infinity);     // It is Infinity
-format('It is %v', true);         // It is true
-format('It is %v', false);        // It is false
-format('It is %v', {foo: 'bar'}); // It is Object
-format('It is %v', new Date());   // It is Date
-format('It is %v', new Map());    // It is Map
-format('It is %v', () => 10);     // It is Function
-format('It is %v', undefined);    // It is undefined
-format('It is %v', null);         // It is null
+format('Value is %v', 'foo');        // Value is "foo"
+format('Value is %v', '');           // Value is ""
+format('Value is %v', 10);           // Value is 10
+format('Value is %v', 0);            // Value is 0
+format('Value is %v', NaN);          // Value is NaN
+format('Value is %v', Infinity);     // Value is Infinity
+format('Value is %v', true);         // Value is true
+format('Value is %v', false);        // Value is false
+format('Value is %v', {foo: 'bar'}); // Value is Object
+format('Value is %v', new Date());   // Value is Date
+format('Value is %v', new Map());    // Value is Map
+format('Value is %v', () => 10);     // Value is Function
+format('Value is %v', undefined);    // Value is undefined
+format('Value is %v', null);         // Value is null
 ```
 
 Спецификатор `%v` проектировался для вывода значений в сообщениях
@@ -127,9 +127,9 @@ format('It is %v', null);         // It is null
 ```js
 class MyClass {}
 
-format('It is %v', 'MyClass');     // It is "MyClass"
-format('It is %v', MyClass);       // It is MyClass
-format('It is %v', new MyClass()); // It is MyClass (instance)
+format('Value is %v', 'MyClass');     // Value is "MyClass"
+format('Value is %v', MyClass);       // Value is MyClass
+format('Value is %v', new MyClass()); // Value is MyClass (instance)
 ```
 
 ### %l
@@ -137,8 +137,8 @@ format('It is %v', new MyClass()); // It is MyClass (instance)
 Вывод элементов массива через запятую.
 
 ```js
-format('An array of %l', ['foo', 10, true]);
-// An array of "foo", 10, true
+format('Array contains %l', ['foo', 10, true]);
+// Array contains "foo", 10, true
 ```
 
 Элементы массива приводятся к строке по логике
@@ -155,11 +155,12 @@ format('An array of %l', ['foo', 10, true]);
 import {Errorf} from '@e22m4u/js-format';
 
 throw new Errorf(
-  'It requires one of %l, but %v was given.',
-  [true, false, 'y', 'n'],
+  'Required values are %l, but %v was given.',
+  ['str', 10, true, []],
   new Map(),
 );
-// Error: It requires one of true, false, "y", "n", but Map was given.
+// Errorf:
+// Required values are "str", 10, true, Array, but Map was given.
 ```
 
 ## `InvalidArgumentError`
@@ -173,12 +174,13 @@ import {InvalidArgumentError} from '@e22m4u/js-format';
 function capitalize(input) {
   if (typeof input !== 'string')
     throw new InvalidArgumentError(
-      'The `capitalize` function requires the input argument ' +
-        'to be a String, but %v was given.',
+      'Parameter "input" must be a String, but %v was given.',
       input,
     );
-  // ...
 }
+// capitalize(10);
+//   InvalidArgumentError:
+//   Parameter "input" must be a String, but 10 was given.
 ```
 
 ## Тесты
